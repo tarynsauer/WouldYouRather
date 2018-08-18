@@ -5,17 +5,10 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        Dashboard
+        Dash?
       </div>
     )
   }
 }
 
-function mapStateToProps ({ authedUser, questions, users }) {
-  return {
-    authedUser: authedUser,
-    questions: questions,
-  }
-}
-
-export default connect(mapStateToProps)(Dashboard)
+export default connect()(Dashboard)

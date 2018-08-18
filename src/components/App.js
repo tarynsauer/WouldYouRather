@@ -5,6 +5,10 @@ import { handleInitialData } from '../actions/shared'
 import Dashboard from './Dashboard'
 import Login from './Login'
 import Nav from './Nav'
+import ProtectedRoute from './ProtectedRoute'
+import Leaderboard from './Leaderboard'
+import AddQuestion from './AddQuestion'
+import QuestionsList from './QuestionsList'
 
 class App extends Component {
   componentDidMount () {
@@ -16,6 +20,8 @@ class App extends Component {
   }
 
   render() {
+    const { loggedIn } = this.props
+
     return (
       <Router>
         <div>
@@ -25,6 +31,9 @@ class App extends Component {
                 <Nav />
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/login' component={Login} />
+                <ProtectedRoute path='/questions' component={QuestionsList} loggedIn={loggedIn} />
+                <ProtectedRoute path='/add' component={AddQuestion} loggedIn={loggedIn} />
+                <ProtectedRoute path='/leaderboard' component={Leaderboard} loggedIn={loggedIn} />
               </div>}
             </div>
           </Router>
@@ -32,9 +41,10 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ questions, users }) {
+function mapStateToProps ({ authedUser, questions, users }) {
   return {
     loading: (Object.keys(users).length === 0) || (Object.keys(questions).length === 0),
+    loggedIn: !(authedUser === null),
   }
 }
 
