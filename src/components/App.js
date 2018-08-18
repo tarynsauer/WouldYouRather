@@ -9,6 +9,7 @@ import ProtectedRoute from './ProtectedRoute'
 import Leaderboard from './Leaderboard'
 import AddQuestion from './AddQuestion'
 import QuestionsList from './QuestionsList'
+import QuestionPage from './QuestionPage'
 
 class App extends Component {
   componentDidMount () {
@@ -31,6 +32,7 @@ class App extends Component {
                 <Nav />
                 <Route path='/' exact component={Dashboard} />
                 <Route path='/login' component={Login} />
+                <ProtectedRoute path='/question/:id' component={QuestionPage} loggedIn={loggedIn} />
                 <ProtectedRoute path='/questions' component={QuestionsList} loggedIn={loggedIn} />
                 <ProtectedRoute path='/add' component={AddQuestion} loggedIn={loggedIn} />
                 <ProtectedRoute path='/leaderboard' component={Leaderboard} loggedIn={loggedIn} />

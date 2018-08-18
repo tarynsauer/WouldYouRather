@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
-import { filterQuestions, formatDate, includeQuestions } from '../utils/helpers'
+import { filterQuestions, includeQuestions } from '../utils/helpers'
 
 class QuestionsList extends Component {
   render() {
