@@ -12,11 +12,10 @@ export function handleInitialData () {
   }
 }
 
-export function handleAnswerQuestion (data, goBack) {
+export function handleAnswerQuestion (data) {
   return (dispatch) => {
     dispatch(addAnswer(data))
     dispatch(answerQuestion(data))
     return saveAnswer(data)
-      .then(() => goBack())
   }
 }

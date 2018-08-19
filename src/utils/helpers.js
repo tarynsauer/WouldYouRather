@@ -24,3 +24,11 @@ export function filterQuestions (questions, ids) {
 
   return sortByTimestamp(relevantQuestions)
 }
+
+export function getVotePercentage (votesListOne, votesListTwo) {
+  const votesCountOne = votesListOne.length
+  const votesCountTwo = votesListTwo.length
+  const totalCount = votesCountOne + votesCountTwo
+
+  return Math.round(votesCountOne/totalCount * 100)
+}
