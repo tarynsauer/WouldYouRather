@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
-import Dashboard from './Dashboard'
 import Login from './Login'
 import Nav from './Nav'
 import ProtectedRoute from './ProtectedRoute'
@@ -30,7 +29,7 @@ class App extends Component {
               ? null
               : <div>
                 <Nav />
-                <Route path='/' exact component={Dashboard} />
+                <ProtectedRoute path='/' exact component={QuestionsList} loggedIn={loggedIn} />
                 <Route path='/login' component={Login} />
                 <ProtectedRoute path='/question/:id' component={QuestionPage} loggedIn={loggedIn} />
                 <ProtectedRoute path='/questions' component={QuestionsList} loggedIn={loggedIn} />

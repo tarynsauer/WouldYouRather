@@ -30,12 +30,14 @@ class AddQuestion extends Component {
   }
 
   render() {
+    const { optionOneText, optionTwoText } = this.state
+
     return (
       <div>
         <div>Would you Rather</div>
-        <input name='optionOneText'  type='text' value={this.state.optionOneText} onChange={this.handleChange} />
-        <input name='optionTwoText' type='text' value={this.state.optionTwoText} onChange={this.handleChange} />
-        <input onClick={this.handleSubmit} type='submit' />
+        <input name='optionOneText'  type='text' value={optionOneText} onChange={this.handleChange} />
+        <input name='optionTwoText' type='text' value={optionTwoText} onChange={this.handleChange} />
+        <input onClick={this.handleSubmit} disabled={!(optionOneText && optionTwoText)} type='submit' />
       </div>
     )
   }
