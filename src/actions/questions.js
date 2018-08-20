@@ -1,7 +1,6 @@
-import { saveAnswer } from '../utils/api'
-
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_ANSWER = 'ADD_ANSWER'
+export const ADD_QUESTION = 'ADD_QUESTION'
 
 export function receiveQuestions (questions) {
   return {
@@ -16,5 +15,12 @@ export function addAnswer ({authedUser, qid, answer}) {
     qid,
     authedUser,
     answer,
+  }
+}
+
+export function addQuestion (question) {
+  return {
+    type: ADD_QUESTION,
+    question,
   }
 }
