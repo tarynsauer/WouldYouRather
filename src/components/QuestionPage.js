@@ -23,7 +23,7 @@ class QuestionPage extends Component {
 
     return (
       <div>
-        <div>Would you Rather</div>
+        <h1>Would you Rather</h1>
           {isAnsweredByUser ? (
             <div>
               <button value='optionOne' onClick={this.handleClick}>{optionOne.text}</button>

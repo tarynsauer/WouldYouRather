@@ -9,19 +9,22 @@ class QuestionsList extends Component {
     const { answeredQuestions, unansweredQuestions } = this.props
 
     return (
-      <div className='float-left'>
-        Unanswered:
-        <ul>
-          {unansweredQuestions.map((question) => {
-            return <Question key={ question.id } question={ question } />
-          })}
-        </ul>
-        Answered:
-        <ul>
-          {answeredQuestions.map((question) => {
-            return <Question key={ question.id } question={ question } />
-          })}
-        </ul>
+      <div>
+        <h1>Questions</h1>
+        <div className='float-left'>
+          Unanswered:
+          <ul>
+            {unansweredQuestions.map((question) => {
+              return <Question key={ question.id } question={ question } />
+            })}
+          </ul>
+          Answered:
+          <ul>
+            {answeredQuestions.map((question) => {
+              return <Question key={ question.id } question={ question } />
+            })}
+          </ul>
+        </div>
       </div>
     )
   }

@@ -35,6 +35,7 @@ class AddQuestion extends Component {
 
     return (
       <div>
+        <h1>Add Question</h1>
         <div>Would you Rather</div>
         <input name='optionOneText'  type='text' value={optionOneText} onChange={this.handleChange} />
         <input name='optionTwoText' type='text' value={optionTwoText} onChange={this.handleChange} />
