@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 import { Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class Login extends Component {
   state = {
@@ -52,13 +53,16 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps ({ authedUser, users }) {
+function mapStateToProps ({ users }) {
   return {
-    authedUser: authedUser,
     usersList: Object.keys(users).map((key) => {
       return { id: key, name: users[key].name }
     })
   }
+}
+
+Login.propTypes = {
+  usersList: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps)(Login)

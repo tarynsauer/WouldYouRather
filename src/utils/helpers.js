@@ -32,3 +32,19 @@ export function getVotePercentage (votesListOne, votesListTwo) {
 
   return Math.round(votesCountOne/totalCount * 100)
 }
+
+export function getUserStats (users) {
+  return Object.values(users).map((user) => {
+    const questionsCount = user.questions.length
+    const answersCount = Object.values(user.answers).length
+
+    return {
+      id: user.id,
+      name: user.name,
+      avatarURL: user.avatarURL,
+      questionsCount: questionsCount,
+      answersCount: answersCount,
+      total: questionsCount + answersCount,
+    }
+  }).sort((a, b) => a.total < b.total)
+}

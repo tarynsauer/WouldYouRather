@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/shared'
 import { getVotePercentage } from '../utils/helpers'
+import PropTypes from 'prop-types'
 
 class QuestionPage extends Component {
-
   handleClick = (e) => {
     e.preventDefault()
     const { dispatch, question, user } = this.props
@@ -46,10 +46,16 @@ function mapStateToProps ({ authedUser, questions, users }, props) {
   const question = questions[props.match.params.id]
 
   return {
-    user: users[authedUser],
-    question: question,
     author: users[question.author],
+    question: question,
+    user: users[authedUser],
   }
+}
+
+QuestionPage.propTypes = {
+  author: PropTypes.object.isRequired,
+  question: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(QuestionPage)

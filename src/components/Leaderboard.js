@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { getUserStats } from '../utils/helpers'
+import PropTypes from 'prop-types'
 
 class Leaderboard extends Component {
   render() {
@@ -31,20 +33,12 @@ class Leaderboard extends Component {
 
 function mapStateToProps ({ users }) {
   return {
-    userStats: Object.values(users).map((user) => {
-      const questionsCount = user.questions.length
-      const answersCount = Object.values(user.answers).length
-
-      return {
-        id: user.id,
-        name: user.name,
-        avatarURL: user.avatarURL,
-        questionsCount: questionsCount,
-        answersCount: answersCount,
-        total: questionsCount + answersCount,
-      }
-    }).sort((a, b) => a.total < b.total),
+    userStats: getUserStats(users),
   }
+}
+
+Leaderboard.propTypes = {
+  userStats: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps)(Leaderboard)

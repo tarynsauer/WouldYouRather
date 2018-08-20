@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
+import AddQuestion from './AddQuestion'
+import Leaderboard from './Leaderboard'
 import Login from './Login'
 import Nav from './Nav'
+import PropTypes from 'prop-types'
 import ProtectedRoute from './ProtectedRoute'
-import Leaderboard from './Leaderboard'
-import AddQuestion from './AddQuestion'
-import QuestionsList from './QuestionsList'
 import QuestionPage from './QuestionPage'
+import QuestionsList from './QuestionsList'
 
 class App extends Component {
   componentDidMount () {
@@ -20,12 +21,12 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { loading, loggedIn } = this.props
 
     return (
       <Router>
         <div>
-          {this.props.loading === true
+          {loading === true
               ? null
               : <div>
                 <Nav />
@@ -47,6 +48,11 @@ function mapStateToProps ({ authedUser, questions, users }) {
     loading: (Object.keys(users).length === 0) || (Object.keys(questions).length === 0),
     loggedIn: !(authedUser === null),
   }
+}
+
+App.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
 }
 
 export default connect(mapStateToProps)(App)

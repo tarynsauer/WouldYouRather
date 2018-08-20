@@ -11,7 +11,7 @@ const Question = ({ question }) => (
 )
 
 Question.propTypes = {
-  question: PropTypes.object.isRequired
+  question: PropTypes.object.isRequired,
 }
 
 export default Question

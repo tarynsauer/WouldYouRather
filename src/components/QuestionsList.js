@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Question from './Question'
 import { filterQuestions, includeQuestions } from '../utils/helpers'
+import PropTypes from 'prop-types'
 
 class QuestionsList extends Component {
   render() {
@@ -38,6 +39,12 @@ function mapStateToProps ({ authedUser, users, questions }) {
     answeredQuestions: answeredQuestions,
     unansweredQuestions: unansweredQuestions,
   }
+}
+
+QuestionsList.propTypes = {
+  authedUser: PropTypes.string.isRequired,
+  answeredQuestions: PropTypes.array.isRequired,
+  unansweredQuestions: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps)(QuestionsList)

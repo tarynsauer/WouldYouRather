@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
+import PropTypes from 'prop-types'
 
 class AddQuestion extends Component {
   state = {
@@ -47,6 +48,10 @@ function mapStateToProps ({ authedUser }) {
   return {
     author: authedUser,
   }
+}
+
+AddQuestion.propTyypes = {
+  author: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(AddQuestion)
