@@ -40,12 +40,14 @@ class Login extends Component {
       <div className='login-container'>
         <h1>Log in</h1>
         <form onSubmit={this.handleSubmit}>
-          <select onChange={this.handleChange}>
-            <option defaultValue={null}> -- select username -- </option>
-            {this.props.usersList.map((user) => (
-              <option key={user.id} value={user.id}>{user.name}</option>
-            ))}
-          </select>
+          <div className='select-menu'>
+            <select onChange={this.handleChange}>
+              <option defaultValue={null}> -- select username -- </option>
+              {this.props.usersList.map((user) => (
+                <option key={user.id} value={user.id}>{user.name}</option>
+              ))}
+            </select>
+          </div>
           <input type='submit' value='Login' />
         </form>
       </div>
