@@ -17,8 +17,8 @@ class Nav extends Component {
       return <Redirect to='/login' />
     }
     return (
-      <ul className='menu align-right'>
-        <li>Hello, {userName}</li>
+      <ul className='menu'>
+        <li className='username'>Hello, {userName}</li>
         <li><a href='/login' onClick={this.handleClick}>Logout</a></li>
         <li><Link to='/questions'>Questions</Link></li>
         <li><Link to='/add'>Add Question</Link></li>

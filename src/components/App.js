@@ -31,12 +31,14 @@ class App extends Component {
               ? null
               : <div>
                 <Nav />
-                <ProtectedRoute path='/' exact component={QuestionsList} loggedIn={loggedIn} />
-                <Route path='/login' component={Login} />
-                <ProtectedRoute path='/question/:id' component={QuestionPage} loggedIn={loggedIn} />
-                <ProtectedRoute path='/questions' component={QuestionsList} loggedIn={loggedIn} />
-                <ProtectedRoute path='/add' component={AddQuestion} loggedIn={loggedIn} />
-                <ProtectedRoute path='/leaderboard' component={Leaderboard} loggedIn={loggedIn} />
+                <div className='content-container'>
+                  <ProtectedRoute path='/' exact component={QuestionsList} loggedIn={loggedIn} />
+                  <Route path='/login' component={Login} />
+                  <ProtectedRoute path='/question/:id' component={QuestionPage} loggedIn={loggedIn} />
+                  <ProtectedRoute path='/questions' component={QuestionsList} loggedIn={loggedIn} />
+                  <ProtectedRoute path='/add' component={AddQuestion} loggedIn={loggedIn} />
+                  <ProtectedRoute path='/leaderboard' component={Leaderboard} loggedIn={loggedIn} />
+                </div>
               </div>}
             </div>
           </Router>
