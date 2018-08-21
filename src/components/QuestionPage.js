@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/shared'
-import { getVotePercentage } from '../utils/helpers'
 import PropTypes from 'prop-types'
+import AnsweredQuestion from './AnsweredQuestion'
+import UnansweredQuestion from './UnansweredQuestion'
 
 class QuestionPage extends Component {
   handleClick = (e) => {
@@ -25,17 +26,11 @@ class QuestionPage extends Component {
     return (
       <div>
         <h1>Would you Rather</h1>
-          {unansweredByUser ? (
-            <div>
-              <button value='optionOne' onClick={this.handleClick}>{optionOne.text}</button>
-              <button value='optionTwo' onClick={this.handleClick}>{optionTwo.text}</button>
-            </div>
-          ) : (
-            <div className='answered-question'>
-              <div className={userAnswer === 'optionOne' ? 'selectedOption' : ''}>{optionOne.text} - {optionOne.votes.length} - {getVotePercentage(optionOne.votes, optionTwo.votes)}%</div>
-              <div className={userAnswer === 'optionTwo' ? 'selectedOption' : ''}>{optionTwo.text} - {optionTwo.votes.length} - {getVotePercentage(optionTwo.votes, optionOne.votes)}%</div>
-            </div>
-          )}
+        {unansweredByUser ? (
+          <UnansweredQuestion optionOneText={optionOne.text} optionTwoText={optionTwo.text} handleClick={this.handleClick} />
+        ) : (
+          <AnsweredQuestion optionOne={optionOne} optionTwo={optionTwo} userAnswer={userAnswer} />
+        )}
 
         <img src={author.avatarURL} alt={author.name} />
       </div>

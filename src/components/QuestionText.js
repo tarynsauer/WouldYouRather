@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const Question = ({ question }) => (
+const QuestionText = ({ question }) => (
   <div>
     <Link to={`/question/${question.id}`}>
       <p>Would you rather <strong>{question.optionOne.text}</strong> or <strong>{question.optionTwo.text}</strong>?</p>
@@ -10,8 +10,8 @@ const Question = ({ question }) => (
   </div>
 )
 
-Question.propTypes = {
+QuestionText.propTypes = {
   question: PropTypes.object.isRequired,
 }
 
-export default Question
+export default QuestionText

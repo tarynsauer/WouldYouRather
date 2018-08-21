@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Question from './Question'
+import QuestionText from './QuestionText'
 import { filterQuestions, includeQuestions } from '../utils/helpers'
 import PropTypes from 'prop-types'
 
@@ -30,7 +30,7 @@ class QuestionsList extends Component {
               <h2>Unanswered</h2>
               <ul>
                 {unansweredQuestions.map((question) => {
-                  return <Question key={ question.id } question={ question } />
+                  return <QuestionText key={ question.id } question={ question } />
                 })}
               </ul>
             </div>
@@ -39,7 +39,7 @@ class QuestionsList extends Component {
               <h2>Answered</h2>
               <ul>
                 {answeredQuestions.map((question) => {
-                  return <Question key={ question.id } question={ question } />
+                  return <QuestionText key={ question.id } question={ question } />
                 })}
               </ul>
             </div>
