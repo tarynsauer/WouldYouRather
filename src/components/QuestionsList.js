@@ -5,25 +5,45 @@ import { filterQuestions, includeQuestions } from '../utils/helpers'
 import PropTypes from 'prop-types'
 
 class QuestionsList extends Component {
+  state = {
+    showUnanswered: true,
+  }
+
+  handleClick = (e) => {
+    const newValue = !this.state.showUnanswered
+    this.setState(() => ({
+      showUnanswered: newValue,
+    }))
+  }
+
   render() {
     const { answeredQuestions, unansweredQuestions } = this.props
+    const { showUnanswered } = this.state
 
     return (
-      <div>
+      <div className='question-list'>
         <h1>Questions</h1>
-        <div className='float-left'>
-          Unanswered:
-          <ul>
-            {unansweredQuestions.map((question) => {
-              return <Question key={ question.id } question={ question } />
-            })}
-          </ul>
-          Answered:
-          <ul>
-            {answeredQuestions.map((question) => {
-              return <Question key={ question.id } question={ question } />
-            })}
-          </ul>
+        <span className='toggle-button' onClick={this.handleClick}>Show {showUnanswered ? 'Answered' : 'Unanswered'}</span>
+        <div>
+          {showUnanswered ? (
+            <div>
+              <h2>Unanswered</h2>
+              <ul>
+                {unansweredQuestions.map((question) => {
+                  return <Question key={ question.id } question={ question } />
+                })}
+              </ul>
+            </div>
+          ) : (
+            <div>
+              <h2>Answered</h2>
+              <ul>
+                {answeredQuestions.map((question) => {
+                  return <Question key={ question.id } question={ question } />
+                })}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     )

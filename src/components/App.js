@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import ProtectedRoute from './ProtectedRoute'
 import QuestionPage from './QuestionPage'
 import QuestionsList from './QuestionsList'
+import './App.css'
 
 class App extends Component {
   componentDidMount () {
