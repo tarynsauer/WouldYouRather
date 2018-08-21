@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 
 class AddQuestion extends Component {
   state = {
     optionOneText: '',
     optionTwoText: '',
+    toHome: false,
   }
 
   handleSubmit = (e) => {
@@ -18,6 +20,7 @@ class AddQuestion extends Component {
     this.setState(() => ({
       optionOneText: '',
       optionTwoText: '',
+      toHome: true,
     }))
   }
 
@@ -31,7 +34,11 @@ class AddQuestion extends Component {
   }
 
   render() {
-    const { optionOneText, optionTwoText } = this.state
+    const { optionOneText, optionTwoText, toHome } = this.state
+
+    if (toHome === true) {
+      return <Redirect to='/' />
+    }
 
     return (
       <div>
