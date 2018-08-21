@@ -19,3 +19,8 @@ body, .app {
 .question-list .toggle-button {
   cursor: pointer;
 }
+
+.answered-question .selectedOption {
+  color: blue;
+  font-weight: bold;
+}

@@ -19,20 +19,21 @@ class QuestionPage extends Component {
   render() {
     const { question, author, user } = this.props
     const { optionOne, optionTwo } = question
-    const isAnsweredByUser = !Object.keys(user.answers).includes(question.id)
+    const unansweredByUser = !Object.keys(user.answers).includes(question.id)
+    const userAnswer = user.answers[question.id]
 
     return (
       <div>
         <h1>Would you Rather</h1>
-          {isAnsweredByUser ? (
+          {unansweredByUser ? (
             <div>
               <button value='optionOne' onClick={this.handleClick}>{optionOne.text}</button>
               <button value='optionTwo' onClick={this.handleClick}>{optionTwo.text}</button>
             </div>
           ) : (
-            <div>
-              <div>{optionOne.text} - {optionOne.votes.length} - {getVotePercentage(optionOne.votes, optionTwo.votes)}%</div>
-              <div>{optionTwo.text} - {optionTwo.votes.length} - {getVotePercentage(optionTwo.votes, optionOne.votes)}%</div>
+            <div className='answered-question'>
+              <div className={userAnswer === 'optionOne' ? 'selectedOption' : ''}>{optionOne.text} - {optionOne.votes.length} - {getVotePercentage(optionOne.votes, optionTwo.votes)}%</div>
+              <div className={userAnswer === 'optionTwo' ? 'selectedOption' : ''}>{optionTwo.text} - {optionTwo.votes.length} - {getVotePercentage(optionTwo.votes, optionOne.votes)}%</div>
             </div>
           )}
 
