@@ -6,29 +6,52 @@ import PropTypes from 'prop-types'
 
 class Login extends Component {
   state = {
-    userId: null,
+    error: '',
+    password: '',
     loggedIn: false,
+    userId: null,
+    username: '',
   }
 
   handleChange = (e) => {
-    const userId = e.target.value
+    const name = e.target.name
+    const value = e.target.value
 
     this.setState(() => ({
-      userId
+      [name]: value
     }))
+  }
+
+  isValidLogin = (username, password) => {
+    const { usersList } = this.props
+    const result = usersList.filter(user => (user.id === username) && (user.password === password))
+    return result.length > 0
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
 
-    const { userId } = this.state
+    const { username, password } = this.state
 
-    this.props.dispatch(setAuthedUser(userId))
+    if (this.isValidLogin(username, password)) {
+      this.props.dispatch(setAuthedUser(username))
 
-    this.setState(() => ({
-      userId: null,
-      loggedIn: this.state.userId === null ? false : true,
-    }))
+      this.setState(() => ({
+        error: '',
+        password: '',
+        loggedIn: true,
+        userId: username,
+        username: '',
+      }))
+    } else {
+      this.setState(() => ({
+        error: 'The username or password entered is incorrect. Try again.',
+        password: '',
+        loggedIn: false,
+        userId: null,
+        username: '',
+      }))
+    }
   }
 
   render() {
@@ -39,14 +62,11 @@ class Login extends Component {
     return (
       <div className='login-container'>
         <h1>Log in</h1>
+        <div className='errors'>{this.state.error}</div>
         <form onSubmit={this.handleSubmit}>
-          <div className='select-menu'>
-            <select onChange={this.handleChange}>
-              <option defaultValue={null}> -- select username -- </option>
-              {this.props.usersList.map((user) => (
-                <option key={user.id} value={user.id}>{user.name}</option>
-              ))}
-            </select>
+          <div className='login-inputs'>
+            <input type='text' onChange={this.handleChange} value={this.state.username} name='username' placeholder='Username' autoComplete='username' />
+            <input type='password' onChange={this.handleChange} value={this.state.password} name='password' placeholder='Password' autoComplete='current-password' />
           </div>
           <input type='submit' value='Login' />
         </form>
@@ -58,7 +78,7 @@ class Login extends Component {
 function mapStateToProps ({ users }) {
   return {
     usersList: Object.keys(users).map((key) => {
-      return { id: key, name: users[key].name }
+      return { id: key, name: users[key].name, password: users[key].password }
     })
   }
 }

@@ -28,7 +28,15 @@ body, .app {
   padding: 5%;
 }
 
-.login-container input {
+.login-container input[type="text"], input[type="password"] {
+  margin: 1em 0;
+  width: 18em;
+  height: 1.5em;
+  font-size: .95em;
+  display: block;
+}
+
+.login-container input[type="submit"] {
   background-color: teal;
   border: none;
   color: white;
@@ -41,25 +49,8 @@ body, .app {
   cursor: pointer;
 }
 
-.login-container input:hover {
-  background-color: #00b3b3;
-}
-
-.login-container .select-menu {
-  height: 34px;
-  overflow: hidden;
-  width: 240px;
-  background: teal url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-}
-
-.login-container .select-menu select {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  height: 34px;
-  padding: 5px;
-  width: 268px;
-  color: #EEE;
+.login-container .errors {
+  color: red;
 }
 
 .primary-button {
