@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import AddQuestion from './AddQuestion'
 import Leaderboard from './Leaderboard'
-import LoadingBar from 'react-redux-loading'
 import Login from './Login'
 import Nav from './Nav'
 import PropTypes from 'prop-types'
@@ -28,9 +27,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <header>
-          <LoadingBar />
-        </header>
           {loading === true
               ? null
               : <div>
