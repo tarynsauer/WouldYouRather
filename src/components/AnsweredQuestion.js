@@ -5,6 +5,7 @@ import { getVotePercentage } from '../utils/helpers'
 const AnsweredQuestion = ({ optionOne, optionTwo, userAnswer }) => (
   <div className='answered-question'>
     <div className={userAnswer === 'optionOne' ? 'selectedOption' : ''}>{optionOne.text} - {optionOne.votes.length} - {getVotePercentage(optionOne.votes, optionTwo.votes)}%</div>
+    <p className='or-text'>Or</p>
     <div className={userAnswer === 'optionTwo' ? 'selectedOption' : ''}>{optionTwo.text} - {optionTwo.votes.length} - {getVotePercentage(optionTwo.votes, optionOne.votes)}%</div>
   </div>
 )

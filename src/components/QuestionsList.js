@@ -23,7 +23,7 @@ class QuestionsList extends Component {
     return (
       <div className='question-list'>
         <h1>Questions</h1>
-        <span className='toggle-button' onClick={this.handleClick}>Show {showUnanswered ? 'Answered' : 'Unanswered'}</span>
+        <span className='primary-button' onClick={this.handleClick}>Show {showUnanswered ? 'Answered' : 'Unanswered'}</span>
         <div>
           {showUnanswered ? (
             <div>

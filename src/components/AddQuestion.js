@@ -41,12 +41,13 @@ class AddQuestion extends Component {
     }
 
     return (
-      <div>
+      <div className='add-question'>
         <h1>Add Question</h1>
-        <div>Would you Rather</div>
+        <h2>Would you Rather...</h2>
         <input name='optionOneText'  type='text' value={optionOneText} onChange={this.handleChange} />
+        <p className='or-text'>Or</p>
         <input name='optionTwoText' type='text' value={optionTwoText} onChange={this.handleChange} />
-        <input onClick={this.handleSubmit} disabled={!(optionOneText && optionTwoText)} type='submit' />
+        <input className='primary-button' onClick={this.handleSubmit} disabled={!(optionOneText && optionTwoText)} type='submit' />
       </div>
     )
   }

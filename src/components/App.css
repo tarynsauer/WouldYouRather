@@ -62,7 +62,7 @@ body, .app {
   color: #EEE;
 }
 
-.question-list .toggle-button {
+.primary-button {
   background-color: teal;
   border: none;
   color: white;
@@ -81,7 +81,7 @@ body, .app {
 }
 
 .answered-question .selectedOption {
-  color: blue;
+  color: teal;
   font-weight: bold;
 }
 
@@ -115,3 +115,80 @@ ul.menu {
   background-color: #111111;
 }
 
+.unanswered-question {
+  margin: 0 auto;
+  width: 382px;
+}
+
+.unanswered-question .primary-button {
+  float: left;
+  margin-right: 1em;
+}
+
+.question-section img {
+  max-width: 7em;;
+  max-height: 7em;
+}
+
+.question-section {
+  text-align: center;
+}
+
+.or-text {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.add-question input[type="text"] {
+  margin: 1em 0;
+  width: 25em;
+  height: 1.5em;
+  font-size: .95em;
+  display: block;
+}
+
+.leaderboard img {
+  max-width: 6em;;
+  max-height: 6em;
+  float: right;
+}
+
+.leaderboard table {
+  border-collapse: collapse;
+  font-size: 1.2em;
+  width: 80%;
+}
+
+.leaderboard td, .leaderboard th {
+  border: 1px solid #ddd;
+}
+
+.leaderboard td + td, .leaderboard th {
+  padding-left: 1em;
+}
+
+.leaderboard tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.leaderboard tr:hover {
+  background-color: #ddd;
+}
+
+.leaderboard th {
+  font-weight: normal;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: teal;
+  color: #fff;
+}
+
+.leaderboard th:first-child {
+  width: 6em;
+  padding-left: 0;
+}
+
+.answered-question div {
+  font-size: 1.25em;
+}

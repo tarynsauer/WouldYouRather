@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 const UnansweredQuestion = ({ optionOneText, optionTwoText, handleClick }) => (
   <div className='unanswered-question'>
-    <button value='optionOne' onClick={handleClick}>{optionOneText}</button>
-    <button value='optionTwo' onClick={handleClick}>{optionTwoText}</button>
+    <button className='primary-button' value='optionOne' onClick={handleClick}>{optionOneText}</button>
+    <button className='primary-button' value='optionTwo' onClick={handleClick}>{optionTwoText}</button>
   </div>
 )
 

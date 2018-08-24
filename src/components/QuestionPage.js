@@ -24,15 +24,16 @@ class QuestionPage extends Component {
     const userAnswer = user.answers[question.id]
 
     return (
-      <div>
+      <div className='question-section'>
+        <img src={author.avatarURL} alt={author.name} />
+        <p>{author.name} asks...</p>
         <h1>Would you Rather</h1>
+
         {unansweredByUser ? (
           <UnansweredQuestion optionOneText={optionOne.text} optionTwoText={optionTwo.text} handleClick={this.handleClick} />
         ) : (
           <AnsweredQuestion optionOne={optionOne} optionTwo={optionTwo} userAnswer={userAnswer} />
         )}
-
-        <img src={author.avatarURL} alt={author.name} />
       </div>
     )
   }

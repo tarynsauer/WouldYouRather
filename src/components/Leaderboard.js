@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 class Leaderboard extends Component {
   render() {
     return (
-      <div>
+      <div className='leaderboard'>
         <h1>Leaderboard</h1>
         <table>
           <tbody>
@@ -18,7 +18,7 @@ class Leaderboard extends Component {
             </tr>
             {this.props.userStats.map((stat) =>
               <tr key={stat.id}>
-                <td>{stat.avatarURL}</td>
+                <td><img src={stat.avatarURL} alt={stat.name} /></td>
                 <td>{stat.name}</td>
                 <td>{stat.questionsCount}</td>
                 <td>{stat.answersCount}</td>
