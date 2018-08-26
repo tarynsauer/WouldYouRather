@@ -1,6 +1,7 @@
-import { getInitialData, saveAnswer, saveQuestion } from '../utils/api'
+import { saveUser, getInitialData, saveAnswer, saveQuestion } from '../utils/api'
+import { setAuthedUser } from './authedUser'
 import { receiveQuestions, addAnswer, addQuestion } from './questions'
-import { receiveUsers, answerQuestion, askQuestion } from './users'
+import { addUser, receiveUsers, answerQuestion, askQuestion } from './users'
 
 export function handleInitialData () {
   return (dispatch) => {
@@ -27,5 +28,15 @@ export function handleAddQuestion (data) {
         dispatch(addQuestion(question))
         dispatch(askQuestion(question))
       })
+  }
+}
+
+export function handleUserCreate (data, callback) {
+  return (dispatch) => {
+    return saveUser(data)
+      .then((user) => {
+        dispatch(addUser(user))
+        dispatch(setAuthedUser(user.id))
+      }).then(() => callback())
   }
 }

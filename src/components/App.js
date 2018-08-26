@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import AddQuestion from './AddQuestion'
 import Leaderboard from './Leaderboard'
-import Login from './Login'
+import LoginPage from './LoginPage'
 import Nav from './Nav'
 import PropTypes from 'prop-types'
 import ProtectedRoute from './ProtectedRoute'
@@ -33,7 +33,7 @@ class App extends Component {
                 <Nav />
                 <div className='content-container'>
                   <ProtectedRoute path='/' exact component={QuestionsList} loggedIn={loggedIn} />
-                  <Route path='/login' component={Login} />
+                  <Route path='/login' component={LoginPage} />
                   <ProtectedRoute path='/question/:id' component={QuestionPage} loggedIn={loggedIn} />
                   <ProtectedRoute path='/questions' component={QuestionsList} loggedIn={loggedIn} />
                   <ProtectedRoute path='/add' component={AddQuestion} loggedIn={loggedIn} />
