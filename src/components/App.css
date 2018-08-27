@@ -3,12 +3,6 @@ html body, .root {
   margin: 0;
 }
 
-ol, ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   line-height: 1.5;
   font-family: 'Titillium Web', sans-serif;
@@ -22,10 +16,10 @@ body, .app {
   margin: 2em 10em;
 }
 
-.login-container {
-  margin: auto;
-  width: 50%;
-  padding: 5%;
+.login-container, .login-page h1, p {
+  margin: 0 auto;
+  width: 400px;
+
 }
 
 .login-container input[type="text"], input[type="password"] {
@@ -91,7 +85,6 @@ ul.menu {
 .menu .username {
   float: left;
   color: white;
-  margin: 1.25em;
 }
 
 .menu li a {
@@ -125,9 +118,19 @@ ul.menu {
   text-align: center;
 }
 
+.question-list ul {
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
 .or-text {
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.add-question .or-text {
+  margin: 0;
 }
 
 .add-question input[type="text"] {

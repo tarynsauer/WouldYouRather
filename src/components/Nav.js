@@ -18,7 +18,7 @@ class Nav extends Component {
     }
     return (
       <ul className='menu'>
-        <li className='username'>Hello, {userName}</li>
+        <li className='username'><Link to='/'>Hello, <em>{userName}</em></Link></li>
         <li><a href='/login' onClick={this.handleClick}>Logout</a></li>
         <li><Link to='/questions'>Questions</Link></li>
         <li><Link to='/add'>Add Question</Link></li>

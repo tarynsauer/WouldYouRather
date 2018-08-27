@@ -22,9 +22,10 @@ class LoginPage extends Component {
     }
 
     return (
-      <div>
-        <h1>Would you Rather</h1>
+      <div className='login-page'>
+        <h1>Would you Rather...</h1>
         <Login users={this.props.users} setLoggedIn={this.setLoggedIn} />
+        <p className='or-text'>Or</p>
         <CreateUser users={this.props.users} setLoggedIn={this.setLoggedIn} />
       </div>
     )
