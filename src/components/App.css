@@ -30,19 +30,6 @@ body, .app {
   display: block;
 }
 
-.login-container input[type="submit"] {
-  background-color: teal;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  margin: 28px 0;
-  cursor: pointer;
-}
-
 .login-container .errors {
   color: red;
 }
@@ -61,8 +48,12 @@ body, .app {
   width: 175px;
 }
 
-.question-list .toggle-button:hover {
+.primary-button:hover {
   background-color: #00b3b3;
+}
+
+.primary-button:disabled {
+  background-color: lightgray;
 }
 
 .answered-question .selectedOption {

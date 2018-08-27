@@ -30,19 +30,11 @@ class CreateUser extends Component {
       errors.push(`Username ${username} already exists`)
     }
 
-    const inputs = Object.entries({ username, password, name })
-    const invalidInputs = inputs.filter(input => (input[1].length === 0))
-    const invalidInputNames = invalidInputs.map(input => input[0])
-
-    if (invalidInputNames.length > 0) {
-      errors.push(`Missing required inputs: ${invalidInputNames.join(', ')}`)
-    }
-
-    if (username.length > 0 && username.length < 3) {
+    if (username.length < 3) {
       errors.push('Username must be at least three characters long')
     }
 
-    if (password.length > 0 && password.length < 9) {
+    if (password.length < 9) {
       errors.push('Password must be at least nine characters long')
     }
 
@@ -77,6 +69,8 @@ class CreateUser extends Component {
   }
 
   render() {
+    const { username, password, name } = this.state
+
     return (
       <div className='login-container'>
         <h2>Create user</h2>
@@ -88,7 +82,7 @@ class CreateUser extends Component {
             <input type='text' onChange={this.handleChange} value={this.state.avatarURL} name='avatarURL' placeholder='Avatar URL' autoComplete='avatar-url' />
             <input type='password' onChange={this.handleChange} value={this.state.password} name='password' placeholder='Password' autoComplete='current-password' />
           </div>
-          <input type='submit' value='Create User' />
+          <input className='primary-button' type='submit' value='Create User' disabled={!(name && username && password)} />
         </form>
       </div>
     )

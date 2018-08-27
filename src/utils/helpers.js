@@ -41,7 +41,7 @@ export function getUserStats (users) {
     return {
       id: user.id,
       name: user.name,
-      avatarURL: user.avatarURL.length === 0 ? 'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_grey_512dp.png' : user.avatarURL,
+      avatarURL: user.avatarURL,
       questionsCount: questionsCount,
       answersCount: answersCount,
       total: questionsCount + answersCount,

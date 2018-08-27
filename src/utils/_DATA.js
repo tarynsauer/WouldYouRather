@@ -155,7 +155,7 @@ function formatUser ({ username, name, password, avatarURL}) {
     id: username,
     name: name,
     password: password,
-    avatarURL: avatarURL,
+    avatarURL: avatarURL.length === 0 ? 'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_grey_512dp.png' : avatarURL,
     answers: {},
     questions: []
   }
