@@ -58,7 +58,9 @@ class Login extends Component {
         <div className='errors'>{this.state.error}</div>
         <form onSubmit={this.handleSubmit}>
           <div className='login-inputs'>
+            <label className='required'></label>
             <input type='text' onChange={this.handleChange} value={this.state.username} name='username' placeholder='Username' autoComplete='username' />
+            <label className='required'></label>
             <input type='password' onChange={this.handleChange} value={this.state.password} name='password' placeholder='Password' autoComplete='current-password' />
           </div>
           <input className='primary-button' type='submit' value='Login' disabled={!(username && password)} />

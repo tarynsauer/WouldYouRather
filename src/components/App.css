@@ -12,6 +12,14 @@ body, .app {
   background: white;
 }
 
+.required:after {
+  content: '*';
+  color: #e32;
+  position: absolute;
+  margin: 0 0 0 -.58em;
+  font-size: 1.5em;
+}
+
 .content-container {
   margin: 2em 10em;
 }
@@ -31,7 +39,7 @@ body, .app {
 }
 
 .login-container .errors {
-  color: red;
+  color: #e32;
 }
 
 .primary-button {
