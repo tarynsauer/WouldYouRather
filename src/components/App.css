@@ -185,3 +185,11 @@ ul.menu {
 .answered-question div {
   font-size: 1.25em;
 }
+
+.not-found {
+  text-align: center;
+}
+
+.not-found h1 {
+  margin-top: 3em;
+}

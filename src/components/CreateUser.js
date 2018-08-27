@@ -23,7 +23,7 @@ class CreateUser extends Component {
 
   validateInputs = () => {
     let errors = []
-    const { username, password, name } = this.state
+    const { username, password } = this.state
     const { usersList } = this.props
     const result = usersList.filter(user => (user.id === this.state.username))
     if (result.length > 0) {

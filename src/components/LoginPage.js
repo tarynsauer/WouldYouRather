@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Login from './Login'
 import CreateUser from './CreateUser'
+import { setAuthedUser } from '../actions/authedUser'
 
 class LoginPage extends Component {
   state = {
@@ -14,6 +15,10 @@ class LoginPage extends Component {
     this.setState(() => ({
       loggedIn: isLoggedIn,
     }))
+  }
+
+  componentDidMount () {
+    this.props.dispatch(setAuthedUser(null))
   }
 
   render() {

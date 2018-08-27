@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import ProtectedRoute from './ProtectedRoute'
 import QuestionPage from './QuestionPage'
 import QuestionsList from './QuestionsList'
+import NotFoundPage from './NotFoundPage'
 import './App.css'
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
                   <ProtectedRoute path='/questions' component={QuestionsList} loggedIn={loggedIn} />
                   <ProtectedRoute path='/add' component={AddQuestion} loggedIn={loggedIn} />
                   <ProtectedRoute path='/leaderboard' component={Leaderboard} loggedIn={loggedIn} />
+                  <Route path='/404' component={NotFoundPage} />
                 </div>
               </div>}
             </div>
