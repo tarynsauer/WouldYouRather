@@ -9,6 +9,8 @@ To start the app:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
+Note: For demo purposes, all existing users have a password of `password1`.
+
 ### TODOs
 * add tests
 * swap out the dummy backend server with real API calls

@@ -17,7 +17,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    password: 'password2',
+    password: 'password1',
     avatarURL: 'https://tylermcginnis.com/would-you-rather/tyler.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
@@ -28,7 +28,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    password: 'password3',
+    password: 'password1',
     avatarURL: anonymousUserAvatarURL,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
