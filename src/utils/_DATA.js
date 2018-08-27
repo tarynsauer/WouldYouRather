@@ -1,3 +1,5 @@
+const anonymousUserAvatarURL = 'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_grey_512dp.png'
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
@@ -27,7 +29,7 @@ let users = {
     id: 'johndoe',
     name: 'John Doe',
     password: 'password3',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/dan.jpg',
+    avatarURL: anonymousUserAvatarURL,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -155,7 +157,7 @@ function formatUser ({ username, name, password, avatarURL}) {
     id: username,
     name: name,
     password: password,
-    avatarURL: avatarURL.length === 0 ? 'https://ssl.gstatic.com/images/branding/product/1x/avatar_square_grey_512dp.png' : avatarURL,
+    avatarURL: avatarURL.length === 0 ? anonymousUserAvatarURL : avatarURL,
     answers: {},
     questions: []
   }
