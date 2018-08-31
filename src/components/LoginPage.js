@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Login from './Login'
 import CreateUser from './CreateUser'
-import { setAuthedUser } from '../actions/authedUser'
+import { previousPathname } from '../utils/helpers'
 
 class LoginPage extends Component {
   state = {
@@ -17,13 +17,9 @@ class LoginPage extends Component {
     }))
   }
 
-  componentDidMount () {
-    this.props.dispatch(setAuthedUser(null))
-  }
-
   render() {
     if (this.state.loggedIn) {
-      return <Redirect to='/' />
+      return <Redirect to={this.props.prevPath} />
     }
 
     return (
@@ -37,9 +33,10 @@ class LoginPage extends Component {
   }
 }
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users }, props) {
   return {
     users: users,
+    prevPath: previousPathname(props.location),
   }
 }
 

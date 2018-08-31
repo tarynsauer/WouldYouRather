@@ -48,3 +48,11 @@ export function getUserStats (users) {
     }
   }).sort((a, b) => a.total < b.total)
 }
+
+export function previousPathname (location) {
+  if (location.state !== undefined) {
+    return location.state.from.pathname
+  } else {
+    return '/404'
+  }
+}
