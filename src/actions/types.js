@@ -1,0 +1,8 @@
+export const ADD_ANSWER = 'ADD_ANSWER'
+export const ADD_QUESTION = 'ADD_QUESTION'
+export const ADD_USER = 'ADD_USER'
+export const ANSWER_QUESTION = 'ANSWER_QUESTION'
+export const ASK_QUESTION = 'ASK_QUESTION'
+export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
+export const RECEIVE_USERS = 'RECEIVE_USERS'
+export const SET_AUTHED_USER = 'SET_AUTHED_USER'
